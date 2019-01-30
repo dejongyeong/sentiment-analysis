@@ -1,2 +1,2 @@
-# sentiment-analysis
+# Sentiment Analysis
 Sentiment Analysis Approach for Reputation Evaluation
