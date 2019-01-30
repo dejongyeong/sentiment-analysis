@@ -11,3 +11,7 @@ Proposed methodology is to compare and evaluate metrics that are being gathered 
 ### Technology Used:
 * PyCharm by JetBrains
 * Python
+
+### Datasets
+Step 1: Clone Repository.<br>
+Step 2: Unzip datasets from sentiment-analysis/datasets before running the program.
