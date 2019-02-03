@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15aa3ca3-6184-4c51-bb13-daa4c1418d3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/sentiment_analysis$implementation.coverage" NAME="implementation Coverage Results" MODIFIED="1548892879293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sentiment_analysis$implementation.coverage" NAME="implementation Coverage Results" MODIFIED="1549151045608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="901734053">
@@ -59,57 +62,73 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="ipynb" value="1" />
+          <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="1" />
+          <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IPNB" value="1" />
+          <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="1" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="41" />
           <entry key="md" value="133" />
-          <entry key="py" value="66" />
+          <entry key="py" value="617" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="66" />
+          <entry key="Python" value="617" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="117" selection-start-line="10" selection-start-column="117" selection-end-line="10" selection-end-column="117" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/lemmatization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <marker date="1544401949679" expanded="true" signature="1866:1931" ph="..." />
                 <marker date="1544401949679" expanded="true" signature="2473:2935" ph="..." />
                 <marker date="1544401949679" expanded="true" signature="3030:3033" ph="..." />
                 <marker date="1544401949679" expanded="true" signature="4445:4492" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="1" />
             </state>
           </provider>
         </entry>
@@ -139,6 +158,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
       </list>
     </option>
   </component>
@@ -148,9 +168,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -160,6 +180,9 @@
           <State />
           <State>
             <id>Python</id>
+          </State>
+          <State>
+            <id>Spelling</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -192,6 +215,12 @@
               <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="implementation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -211,7 +240,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -233,7 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jupyter Notebook.implementation">
+  <component name="RunManager" selected="Python.lexicon-based">
     <configuration name="implementation" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -296,6 +325,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="lexicon-based" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="implementation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sentiment-analysis/implementation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -319,12 +367,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Jupyter Notebook.implementation" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.__init__" />
-      <item itemvalue="Jupyter Notebook.implementation" />
+      <item itemvalue="Python.lexicon-based" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.lexicon-based" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.__init__" />
       </list>
@@ -345,13 +395,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.44382802" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21543624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -382,21 +433,7 @@
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/lemmatization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/minimal_stop_words.py" />
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/contractions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/minimal-stop.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -428,10 +465,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/contractions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/.ipynb_checkpoints/lexicon-based-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <marker date="1544401949679" expanded="true" signature="1866:1931" ph="..." />
             <marker date="1544401949679" expanded="true" signature="2473:2935" ph="..." />
@@ -441,10 +499,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/lemmatization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="117" selection-start-line="10" selection-start-column="117" selection-end-line="10" selection-end-column="117" />
         </state>
       </provider>
     </entry>
