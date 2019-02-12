@@ -40,7 +40,8 @@ for index, row in data.iterrows():
     print(f'processing...')
 print(f'End Spelling Corrections...\n')
 
-# Regex Insert Space between Punctuation and Letters
+# Regex Insert Space between Punctuation and Letters References:
+# https://stackoverflow.com/questions/20705832/python-regex-inserting-a-space-between-punctuation-and-letters/20705997
 print(f'Start Insert Space between Punctuations and Letters...')
 for index, row in data.iterrows():
     data.at[index, 'Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Reviews']))
