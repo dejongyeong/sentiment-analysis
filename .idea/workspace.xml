@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15aa3ca3-6184-4c51-bb13-daa4c1418d3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +78,7 @@
           <entry key="gitignore" value="41" />
           <entry key="lexicon-based" value="8" />
           <entry key="md" value="133" />
-          <entry key="py" value="5032" />
+          <entry key="py" value="5166" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -89,7 +86,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="5040" />
+          <entry key="Python" value="5174" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -109,11 +106,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+            <state relative-caret-position="210">
+              <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
-                <marker date="1550008844777" expanded="true" signature="997:998" ph="..." />
+                <marker date="1550009050519" expanded="true" signature="1093:1094" ph="..." />
               </folding>
             </state>
           </provider>
@@ -517,11 +514,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        <state relative-caret-position="210">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
-            <marker date="1550008844777" expanded="true" signature="997:998" ph="..." />
+            <marker date="1550009050519" expanded="true" signature="1093:1094" ph="..." />
           </folding>
         </state>
       </provider>

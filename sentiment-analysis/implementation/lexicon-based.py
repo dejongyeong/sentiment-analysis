@@ -12,7 +12,7 @@ from contractions import CONTRACTION_MAP
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=50)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
 
 # Data Understanding and Analyzing
 shape = data.shape
@@ -21,24 +21,25 @@ print(f'No. of Rows: {shape[0]}\nNo. of Columns: {shape[1]}')
 print(f'No. of Dimensions: {data.ndim}')
 print(f'No. of Null Values: {data.isnull().sum().sum()}')
 
+# Data Cleaning
 # Remove Null Values
-data = data.dropna(axis=0, how='any')
-shape = data.shape
+reviews = data.dropna(axis=0, how='any')
+shape = reviews.shape
 print(f'\nAfter Cleaning:')
 print(f'No. of Rows: {shape[0]}\nNo. of Columns: {shape[1]}')
-print(f'No. of Null Values: {data.isnull().sum().sum()}\n\n')
+print(f'No. of Null Values: {reviews.isnull().sum().sum()}\n\n')
 
-# Data Cleaning
-# Remove Trailing Spaces
-data.columns = data.columns.str.strip()
+# Remove Trailing Spaces and Lowercase Reviews column
+reviews.columns = reviews.columns.str.strip()
+reviews['Reviews'] = reviews['Reviews'].str.lower()
 
 # Data Preprocessing
 # Spelling Corrections
 # Install TextBlob and Download necessary NLTK corpora
 # References: https://textblob.readthedocs.io/en/dev/install.html
 print(f'Start spelling corrections...')
-for index, row in data.iterrows():
-    data.at[index, 'Reviews'] = TextBlob(row['Reviews']).correct()
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = TextBlob(row['Reviews']).correct()
     print(f'processing...')
 print(f'End spelling corrections...\n')
 
@@ -46,8 +47,8 @@ print(f'End spelling corrections...\n')
 # Remove Punctuation for better Sentiment Analysis
 # https://stackoverflow.com/questions/20705832/python-regex-inserting-a-space-between-punctuation-and-letters/20705997
 print(f'Starting insert space...')
-for index, row in data.iterrows():
-    data.at[index, 'Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Reviews']))
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Reviews']))
     print(f'processing...')
 print(f'End insert space...\n')
 
@@ -72,7 +73,7 @@ def expand_contractions(word, contraction_mapping=CONTRACTION_MAP):
 
 
 print(f'Starting expand contractions...')
-for index, row in data.iterrows():
-    data.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
     print(f'processing...')
 print(f'End expand contractions...')
