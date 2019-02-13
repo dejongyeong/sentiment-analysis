@@ -5,6 +5,7 @@ Created on Sun Feb 03 12:45am 2019
 
 # Import Statement
 import re
+import string
 import pandas as pd
 from textblob import TextBlob
 from contractions import CONTRACTION_MAP
@@ -77,3 +78,18 @@ for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
     print(f'processing...')
 print(f'End expand contractions...')
+
+
+# Remove Punctuation - Efficient and Remove Multiple Whitespace
+# References: https://pythonadventures.wordpress.com/2017/02/05/remove-punctuations-from-a-text/
+print(f'Starting remove punctuation...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = str(row['Reviews']).translate(str.maketrans("", "", string.punctuation))
+    reviews.at[index, 'Reviews'] = re.sub(' +', ' ', str(row['Reviews']))
+    print(f'processing...')
+print(f'End remove punctuation...')
+
+
+# TODO: Convert Non-English to English
+# TODO: Stop Word Removal
+# TODO: Issue Detected - Spelling Correction: samsung -> samson; android -> andros
