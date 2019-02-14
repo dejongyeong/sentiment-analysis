@@ -5,6 +5,7 @@ Created on Sun Feb 03 12:45am 2019
 
 # Import Statement
 import re
+import sys
 import string
 import pandas as pd
 from textblob import TextBlob
@@ -13,9 +14,12 @@ from contractions import CONTRACTION_MAP
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=76)
 
-# Data Understanding and Analyzing
+
+"""
+Data Understanding and Analyzing
+"""
 shape = data.shape
 types = data.dtypes
 print(f'No. of Rows: {shape[0]}\nNo. of Columns: {shape[1]}')
@@ -30,18 +34,33 @@ print(f'\nAfter Cleaning:')
 print(f'No. of Rows: {shape[0]}\nNo. of Columns: {shape[1]}')
 print(f'No. of Null Values: {reviews.isnull().sum().sum()}\n\n')
 
-# Remove Trailing Spaces and Lowercase Reviews column
+# Remove Trailing Spaces
 reviews.columns = reviews.columns.str.strip()
-reviews['Reviews'] = reviews['Reviews'].str.lower()
 
-# Data Preprocessing
-# Spelling Corrections
+
+"""
+Data Preprocessing
+"""
+# Convert Non-English word to English and Spelling Correction
+# TextBlob translation and language detection - powered by Google Translate
+# Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
+print(f'Starting translation non-english to english...')
+for index, row in reviews.iterrows():
+    lang = TextBlob(str(row['Reviews'])).detect_language()
+    if lang != 'en':
+        initial = row['Reviews']
+        reviews.at[index, 'Reviews'] = TextBlob(str(row['Reviews'])).translate(to='en')
+        print(f"translating... {initial} -> {row['Reviews']}")
+    print(f'skipping...')
+print(f'End translation...\n')
+
+# Spelling Corrections - only for English word
 # Install TextBlob and Download necessary NLTK corpora
 # References: https://textblob.readthedocs.io/en/dev/install.html
 print(f'Start spelling corrections...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = TextBlob(row['Reviews']).correct()
-    print(f'processing...')
+    reviews.at[index, 'Reviews'] = TextBlob(str(row['Reviews'])).correct()
+    print(f'correcting...')
 print(f'End spelling corrections...\n')
 
 # Regex Insert Space between Punctuation and Letters
@@ -77,7 +96,7 @@ print(f'Starting expand contractions...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
     print(f'processing...')
-print(f'End expand contractions...')
+print(f'End expand contractions...\n')
 
 
 # Remove Punctuation - Efficient and Remove Multiple Whitespace
@@ -89,7 +108,8 @@ for index, row in reviews.iterrows():
     print(f'processing...')
 print(f'End remove punctuation...')
 
+# Lowercase
+reviews['Reviews'] = reviews['Reviews'].str.lower()
 
-# TODO: Convert Non-English to English
 # TODO: Stop Word Removal
 # TODO: Issue Detected - Spelling Correction: samsung -> samson; android -> andros
