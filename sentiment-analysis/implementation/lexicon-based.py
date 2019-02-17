@@ -5,16 +5,17 @@ Created on Sun Feb 03 12:45am 2019
 
 # Import Statement
 import re
-import sys
 import string
 import pandas as pd
 from textblob import TextBlob
+from nltk import word_tokenize
+from nltk.corpus import stopwords
 from contractions import CONTRACTION_MAP
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=76)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=5)
 
 
 """
@@ -41,6 +42,14 @@ reviews.columns = reviews.columns.str.strip()
 """
 Data Preprocessing
 """
+# Remove numbers in String
+# Reference: https://stackoverflow.com/questions/12851791/removing-numbers-from-string
+print(f'Start removing numbers...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = ''.join(w for w in str(row['Reviews']) if not w.isdigit())
+    print(f'processing...')
+print(f'End removing numbers..\n')
+
 # Convert Non-English word to English and Spelling Correction
 # TextBlob translation and language detection - powered by Google Translate
 # Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
@@ -106,10 +115,22 @@ for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = str(row['Reviews']).translate(str.maketrans("", "", string.punctuation))
     reviews.at[index, 'Reviews'] = re.sub(' +', ' ', str(row['Reviews']))
     print(f'processing...')
-print(f'End remove punctuation...')
+print(f'End remove punctuation...\n')
 
 # Lowercase
 reviews['Reviews'] = reviews['Reviews'].str.lower()
 
-# TODO: Stop Word Removal
-# TODO: Issue Detected - Spelling Correction: samsung -> samson; android -> andros
+# Tokenization
+print(f'Starting tokenization...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = word_tokenize(str(row['Reviews']), language='english')
+    print(f'tokenizing...')
+print(f'End tokenization...\n')
+
+# Stop Words Removal
+# Python Lambda funtion in List Comprehension
+# References: https://stackoverflow.com/questions/33245567/stopword-removal-with-nltk-and-pandas/33246035
+print(f'Starting stopwords removal...')
+stopset = stopwords.words('english')
+reviews['Reviews'] = reviews['Reviews'].apply(lambda x: [item for item in x if item not in stopset])
+print(f'End stopwords removal...')
