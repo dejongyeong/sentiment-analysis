@@ -133,4 +133,7 @@ print(f'End tokenization...\n')
 print(f'Starting stopwords removal...')
 stopset = stopwords.words('english')
 reviews['Reviews'] = reviews['Reviews'].apply(lambda x: [item for item in x if item not in stopset])
+print(f'processing...')
 print(f'End stopwords removal...')
+
+# TODO: Lemmatization

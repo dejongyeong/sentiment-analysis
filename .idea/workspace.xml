@@ -62,7 +62,7 @@
           <entry key="gitignore" value="2" />
           <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="30" />
+          <entry key="py" value="31" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -71,7 +71,7 @@
           <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="30" />
+          <entry key="Python" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -79,7 +79,7 @@
           <entry key="gitignore" value="41" />
           <entry key="lexicon-based" value="8" />
           <entry key="md" value="133" />
-          <entry key="py" value="8292" />
+          <entry key="py" value="8748" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -87,7 +87,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="8300" />
+          <entry key="Python" value="8756" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -107,8 +107,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
+            <state relative-caret-position="379">
+              <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
               </folding>
@@ -378,7 +378,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.35684648" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35637584" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,9 +392,9 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2979021" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2979021" />
       <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.3916084" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.3916084" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -475,7 +475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
+        <state relative-caret-position="814">
           <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -485,8 +485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
+        <state relative-caret-position="379">
+          <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
           </folding>
