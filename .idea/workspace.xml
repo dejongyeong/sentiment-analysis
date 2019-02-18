@@ -62,7 +62,7 @@
           <entry key="gitignore" value="2" />
           <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="31" />
+          <entry key="py" value="34" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -71,7 +71,7 @@
           <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="31" />
+          <entry key="Python" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -79,7 +79,7 @@
           <entry key="gitignore" value="41" />
           <entry key="lexicon-based" value="8" />
           <entry key="md" value="133" />
-          <entry key="py" value="9754" />
+          <entry key="py" value="11168" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -87,7 +87,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="9762" />
+          <entry key="Python" value="11176" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -107,10 +107,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="136" column="23" lean-forward="true" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+            <state relative-caret-position="-44">
+              <caret line="149" column="7" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
+                <marker date="1550507948996" expanded="true" signature="6198:6406" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,11 +138,11 @@
         <option value="$PROJECT_DIR$/sentiment-analysis/prototype/__init__.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/prototype/lemmatization.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/prototype/minimal_stop_words.py" />
-        <option value="$PROJECT_DIR$/sentiment-analysis/prototype/test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.ipynb" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/utility.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/prototype/test.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
       </list>
     </option>
@@ -221,14 +222,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IT Tralee\sentiment-analysis\sentiment-analysis\implementation" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IT Tralee\Final Year Project\implementation" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis\prototype" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis\datasets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IT Tralee\sentiment-analysis\sentiment-analysis\implementation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -378,7 +379,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17181209" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3531856" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,13 +393,13 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2979021" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33566433" />
       <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.38601398" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.38601398" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.6699029" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.667129" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
     </layout>
@@ -475,17 +476,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="150">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="136" column="23" lean-forward="true" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+        <state relative-caret-position="-44">
+          <caret line="149" column="7" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
+            <marker date="1550507948996" expanded="true" signature="6198:6406" ph="..." />
           </folding>
         </state>
       </provider>

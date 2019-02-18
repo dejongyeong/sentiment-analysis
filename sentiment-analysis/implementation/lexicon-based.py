@@ -8,10 +8,10 @@ import re
 import string
 import pandas as pd
 from textblob import TextBlob
-from nltk import word_tokenize
-from nltk.corpus import stopwords
+from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
+from nltk.corpus import stopwords, wordnet
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
@@ -137,13 +137,45 @@ reviews['Reviews'] = reviews['Reviews'].apply(lambda x: [item for item in x if i
 print(f'processing...')
 print(f'End stopwords removal...\n')
 
-# Lemmatization
+
+# Part of Speeh Tagging and Lemmatization
+# Convert Penn treebank tag to WordNet Tag
 # WordNet Lemmatizer with NLTK Libraries
-# Referece: https://www.machinelearningplus.com/nlp/lemmatization-examples-python/
+# Reference: https://github.com/KT12/tag-lemmatize/blob/master/tag-lemmatize.py
+# Reference: https://linguistics.stackexchange.com/questions/6508/which-part-of-speech-are-s-and-r-in-wordnet
+def convert_tag(penn_tag):
+    """
+    convert_tag() accepts the **first letter** of a Penn part-of-speech tag,
+    then uses a dict lookup to convert it to the appropriate WordNet tag.
+    """
+    part = {
+        'N': 'n',  # Noun
+        'V': 'v',  # Verb
+        'J': 'a',  # Adjective
+        'S': 's',  # Adjective Satellite
+        'R': 'r'  # Adverb
+    }
+
+    if penn_tag in part.keys():
+        return part[penn_tag]
+    else:
+        # other parts of speech will be tagged as nouns
+        return 'n'
+
+
+def tag_and_lemm(element):
+    """
+    accepts a tokenized sentences, tags, convert tags, lemmatizing
+    """
+    lemmatizer = WordNetLemmatizer()
+    sentence = pos_tag(element)
+    # list of tuples [('token', 'tag'), ('token2', 'tag2')...]
+    return [lemmatizer.lemmatize(sentence[k][0], convert_tag(sentence[k][1][0])) for k in range(len(sentence))]
+
+
 print(f'Start lemmatization...')
-lemmatizer = WordNetLemmatizer()
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = [lemmatizer.lemmatize(w) for w in row['Reviews']]
+    reviews.at[index, 'Reviews'] = tag_and_lemm(row['Reviews'])
     print(f'lemmatizing...')
 print(f'End lemmatization...\n')
 
