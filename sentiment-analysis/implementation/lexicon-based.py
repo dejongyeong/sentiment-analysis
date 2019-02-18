@@ -10,12 +10,13 @@ import pandas as pd
 from textblob import TextBlob
 from nltk import word_tokenize
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=5)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
 
 
 """
@@ -53,7 +54,7 @@ print(f'End removing numbers..\n')
 # Convert Non-English word to English and Spelling Correction
 # TextBlob translation and language detection - powered by Google Translate
 # Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
-print(f'Starting translation non-english to english...')
+print(f'Start translation non-english to english...')
 for index, row in reviews.iterrows():
     lang = TextBlob(str(row['Reviews'])).detect_language()
     if lang != 'en':
@@ -101,7 +102,7 @@ def expand_contractions(word, contraction_mapping=CONTRACTION_MAP):
     return expended_text
 
 
-print(f'Starting expand contractions...')
+print(f'Start expand contractions...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
     print(f'processing...')
@@ -110,7 +111,7 @@ print(f'End expand contractions...\n')
 
 # Remove Punctuation - Efficient and Remove Multiple Whitespace
 # References: https://pythonadventures.wordpress.com/2017/02/05/remove-punctuations-from-a-text/
-print(f'Starting remove punctuation...')
+print(f'Start remove punctuation...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = str(row['Reviews']).translate(str.maketrans("", "", string.punctuation))
     reviews.at[index, 'Reviews'] = re.sub(' +', ' ', str(row['Reviews']))
@@ -121,7 +122,7 @@ print(f'End remove punctuation...\n')
 reviews['Reviews'] = reviews['Reviews'].str.lower()
 
 # Tokenization
-print(f'Starting tokenization...')
+print(f'Start tokenization...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = word_tokenize(str(row['Reviews']), language='english')
     print(f'tokenizing...')
@@ -129,11 +130,31 @@ print(f'End tokenization...\n')
 
 # Stop Words Removal
 # Python Lambda funtion in List Comprehension
-# References: https://stackoverflow.com/questions/33245567/stopword-removal-with-nltk-and-pandas/33246035
-print(f'Starting stopwords removal...')
+# Reference: https://stackoverflow.com/questions/33245567/stopword-removal-with-nltk-and-pandas/33246035
+print(f'Start stopwords removal...')
 stopset = stopwords.words('english')
 reviews['Reviews'] = reviews['Reviews'].apply(lambda x: [item for item in x if item not in stopset])
 print(f'processing...')
-print(f'End stopwords removal...')
+print(f'End stopwords removal...\n')
 
-# TODO: Lemmatization
+# Lemmatization
+# WordNet Lemmatizer with NLTK Libraries
+# Referece: https://www.machinelearningplus.com/nlp/lemmatization-examples-python/
+print(f'Start lemmatization...')
+lemmatizer = WordNetLemmatizer()
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = [lemmatizer.lemmatize(w) for w in row['Reviews']]
+    print(f'lemmatizing...')
+print(f'End lemmatization...\n')
+
+# Remove Single Character Word after Tokenization
+print(f'Start removing single character...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Reviews'] = [w for w in row['Reviews'] if len(w) > 1]
+    print(f'removing...')
+print(f'End single character removal...\n')
+
+# Overwrite original arrays into a single sentences instead of an array of words.
+# Purpose is to output cleaned data into a new CSV file
+# Reference: https://stackoverflow.com/questions/46098401/pandas-write-to-string-to-csv-instead-of-an-array
+# reviews['Reviews'] = reviews['Reviews'].apply(lambda x: ' '.join(map(str, x)))
