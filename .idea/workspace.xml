@@ -77,9 +77,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="41" />
-          <entry key="lexicon-based" value="8" />
+          <entry key="lexicon-based" value="9" />
           <entry key="md" value="133" />
-          <entry key="py" value="11168" />
+          <entry key="py" value="14258" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -87,7 +87,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="11176" />
+          <entry key="Python" value="14267" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -107,11 +107,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="149" column="7" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
+            <state relative-caret-position="223">
+              <caret line="214" column="74" selection-start-line="214" selection-start-column="74" selection-end-line="214" selection-end-column="74" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
-                <marker date="1550507948996" expanded="true" signature="6198:6406" ph="..." />
+                <marker date="1550535441332" expanded="true" signature="6244:6452" ph="..." />
+                <marker date="1550535441332" expanded="true" signature="8070:8073" ph="..." />
               </folding>
             </state>
           </provider>
@@ -393,13 +394,13 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33566433" />
-      <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.38601398" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.33521923" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.3272727" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.667129" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.909396" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
     </layout>
@@ -483,11 +484,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="149" column="7" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
+        <state relative-caret-position="223">
+          <caret line="214" column="74" selection-start-line="214" selection-start-column="74" selection-end-line="214" selection-end-column="74" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
-            <marker date="1550507948996" expanded="true" signature="6198:6406" ph="..." />
+            <marker date="1550535441332" expanded="true" signature="6244:6452" ph="..." />
+            <marker date="1550535441332" expanded="true" signature="8070:8073" ph="..." />
           </folding>
         </state>
       </provider>

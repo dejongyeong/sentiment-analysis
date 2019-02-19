@@ -5,18 +5,20 @@ Created on Sun Feb 03 12:45am 2019
 
 # Import Statement
 import re
+import sys
 import string
 import pandas as pd
 from textblob import TextBlob
+from nltk.corpus import stopwords
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
-from nltk.corpus import stopwords, wordnet
+from nltk.corpus import sentiwordnet as swn
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=20)
 
 
 """
@@ -185,6 +187,47 @@ for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = [w for w in row['Reviews'] if len(w) > 1]
     print(f'removing...')
 print(f'End single character removal...\n')
+
+
+# SentiWordNet Sentiment Scoring
+# Reference: https://sentiwordnet.isti.cnr.it/
+# Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
+# Usage: sentiwordnet.senti_synsets('good', 'n')
+def lexicon_sentiment(review, verbose=False):
+    tagged = pos_tag(review)
+    pos_score = neg_score = token_count = obj_score = 0
+    ss_set = [swn.senti_synsets(tagged[k][0], convert_tag(tagged[k][1][0])) for k in range(len(tagged))]
+    if ss_set:
+        for word in ss_set:
+            # take the first senti-synsets of each word
+            try:
+                w = next(iter(word))
+
+                pos_score += w.pos_score()
+                neg_score += w.neg_score()
+                obj_score += w.obj_score()
+                token_count += 1
+            except StopIteration:
+                # ignore exception
+                pass
+
+        # aggregate final scores
+        final_score = round(float(pos_score - neg_score) / token_count, 2)
+
+        if final_score > 0.0:
+            return 'positive'
+        elif final_score < 0.0:
+            return 'neutral'
+        else:
+            return 'negative'
+
+
+print(f'SentiWordNet Sentiment Scoring...')
+for index, row in reviews.iterrows():
+    label_sentiment = lexicon_sentiment(row['Reviews'])
+    reviews.at[index, 'Sentiment'] = label_sentiment
+    print(f'scoring...')
+print(f'End SentiWordNet Sentiment Scoring...')
 
 # Overwrite original arrays into a single sentences instead of an array of words.
 # Purpose is to output cleaned data into a new CSV file
