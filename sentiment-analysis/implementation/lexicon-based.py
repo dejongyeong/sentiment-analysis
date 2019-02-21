@@ -18,7 +18,7 @@ from nltk.corpus import sentiwordnet as swn
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=20)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
 
 
 """
@@ -212,20 +212,25 @@ def lexicon_sentiment(review, verbose=False):
                 pass
 
         # aggregate final scores
-        final_score = round(float(pos_score - neg_score) / token_count, 2)
-
-        if final_score > 0.0:
-            return 'positive'
-        elif final_score < 0.0:
-            return 'neutral'
+        if float(pos_score - neg_score) == 0:
+            final_score = round(float(pos_score - neg_score), 3)
         else:
-            return 'negative'
+            final_score = round(float(pos_score - neg_score) / token_count, 3)
+
+        # return array of [final_score, 'sentiment']
+        if final_score > 0.0:
+            return [final_score, 'positive']
+        elif final_score == 0.0:
+            return [final_score, 'neutral']
+        else:
+            return [final_score, 'negative']
 
 
 print(f'SentiWordNet Sentiment Scoring...')
 for index, row in reviews.iterrows():
     label_sentiment = lexicon_sentiment(row['Reviews'])
-    reviews.at[index, 'Sentiment'] = label_sentiment
+    data.at[index, 'Scoring'] = label_sentiment[0]
+    data.at[index, 'Sentiment'] = label_sentiment[1]
     print(f'scoring...')
 print(f'End SentiWordNet Sentiment Scoring...')
 
