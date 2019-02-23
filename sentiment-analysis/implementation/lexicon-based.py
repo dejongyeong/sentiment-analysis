@@ -54,7 +54,7 @@ Data Preprocessing
 print(f'Start removing numbers...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = ''.join(w for w in str(row['Reviews']) if not w.isdigit())
-    print(f'processing...')
+    print(f'processing {index}...')
 print(f'End removing numbers..\n')
 
 # Convert Non-English word to English and Spelling Correction
@@ -65,7 +65,7 @@ print(f'Start translation non-english to english...')
 translator = Translator(to_lang='en')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = translator.translate(str(row['Reviews']))
-    print('translating...')
+    print(f'translating {index}...')
 print(f'End translation...\n')
 
 # Spelling Corrections - only for English word
@@ -74,7 +74,7 @@ print(f'End translation...\n')
 print(f'Start spelling corrections...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = TextBlob(str(row['Reviews'])).correct()
-    print(f'correcting...')
+    print(f'correcting {index}...')
 print(f'End spelling corrections...\n')
 
 # Regex Insert Space between Punctuation and Letters
@@ -83,7 +83,7 @@ print(f'End spelling corrections...\n')
 print(f'Starting insert space...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Reviews']))
-    print(f'processing...')
+    print(f'processing {index}...')
 print(f'End insert space...\n')
 
 
@@ -109,7 +109,7 @@ def expand_contractions(word, contraction_mapping=CONTRACTION_MAP):
 print(f'Start expand contractions...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
-    print(f'processing...')
+    print(f'processing {index}...')
 print(f'End expand contractions...\n')
 
 
@@ -119,7 +119,7 @@ print(f'Start remove punctuation...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = str(row['Reviews']).translate(str.maketrans("", "", string.punctuation))
     reviews.at[index, 'Reviews'] = re.sub(' +', ' ', str(row['Reviews']))
-    print(f'processing...')
+    print(f'processing {index}...')
 print(f'End remove punctuation...\n')
 
 # Lowercase
@@ -129,7 +129,7 @@ reviews['Reviews'] = reviews['Reviews'].str.lower()
 print(f'Start tokenization...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = word_tokenize(str(row['Reviews']), language='english')
-    print(f'tokenizing...')
+    print(f'tokenizing {index}...')
 print(f'End tokenization...\n')
 
 # Stop Words Removal
@@ -180,14 +180,14 @@ def tag_and_lemm(element):
 print(f'Start lemmatization...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = tag_and_lemm(row['Reviews'])
-    print(f'lemmatizing...')
+    print(f'lemmatizing {index}...')
 print(f'End lemmatization...\n')
 
 # Remove Single Character Word after Tokenization
 print(f'Start removing single character...')
 for index, row in reviews.iterrows():
     reviews.at[index, 'Reviews'] = [w for w in row['Reviews'] if len(w) > 1]
-    print(f'removing...')
+    print(f'removing {index}...')
 print(f'End single character removal...\n')
 
 
@@ -233,15 +233,14 @@ for index, row in reviews.iterrows():
     label_sentiment = lexicon_sentiment(row['Reviews'])
     data.at[index, 'Score'] = label_sentiment[0]
     data.at[index, 'Sentiment'] = label_sentiment[1]
-    print(f'scoring...')
+    print(f'scoring {index}...')
 print(f'End SentiWordNet Sentiment Scoring...\n')
+
+# Purpose is to output data with sentiment into a new CSV file
+# Reference: https://stackoverflow.com/questions/46098401/pandas-write-to-string-to-csv-instead-of-an-array
+data.to_csv(r'../datasets/prepared_amazon_unlocked_mobile_datasets_with_sentiment.csv')
 
 # print(f'SentiWordNet Prediction...')
 # swn_prediction = [lexicon_sentiment(review) for review in reviews['Reviews']]
 # binarizer = MultiLabelBinarizer().fit_transform(swn_prediction)
 # print(f"Accuracy: {np.round(metrics.accuracy_score(y_true=binarizer, y_pred=binarizer), 2)}")
-
-# Overwrite original arrays into a single sentences instead of an array of words.
-# Purpose is to output cleaned data into a new CSV file
-# Reference: https://stackoverflow.com/questions/46098401/pandas-write-to-string-to-csv-instead-of-an-array
-# reviews['Reviews'] = reviews['Reviews'].apply(lambda x: ' '.join(map(str, x)))
