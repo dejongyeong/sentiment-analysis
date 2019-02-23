@@ -7,18 +7,22 @@ Created on Sun Feb 03 12:45am 2019
 import re
 import sys
 import string
+import numpy as np
 import pandas as pd
+from sklearn import metrics
 from textblob import TextBlob
+from translate import Translator
 from nltk.corpus import stopwords
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
 from nltk.corpus import sentiwordnet as swn
+from sklearn.preprocessing import MultiLabelBinarizer
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
+data = pd.read_csv(filename, low_memory=False, usecols=fields)
 
 
 """
@@ -56,14 +60,12 @@ print(f'End removing numbers..\n')
 # Convert Non-English word to English and Spelling Correction
 # TextBlob translation and language detection - powered by Google Translate
 # Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
+# Reference: https://pypi.org/project/translate/
 print(f'Start translation non-english to english...')
+translator = Translator(to_lang='en')
 for index, row in reviews.iterrows():
-    lang = TextBlob(str(row['Reviews'])).detect_language()
-    if lang != 'en':
-        initial = row['Reviews']
-        reviews.at[index, 'Reviews'] = TextBlob(str(row['Reviews'])).translate(to='en')
-        print(f"translating... {initial} -> {row['Reviews']}")
-    print(f'skipping...')
+    reviews.at[index, 'Reviews'] = translator.translate(str(row['Reviews']))
+    print('translating...')
 print(f'End translation...\n')
 
 # Spelling Corrections - only for English word
@@ -193,7 +195,7 @@ print(f'End single character removal...\n')
 # Reference: https://sentiwordnet.isti.cnr.it/
 # Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
 # Usage: sentiwordnet.senti_synsets('good', 'n')
-def lexicon_sentiment(review, verbose=False):
+def lexicon_sentiment(review):
     tagged = pos_tag(review)
     pos_score = neg_score = token_count = obj_score = 0
     ss_set = [swn.senti_synsets(tagged[k][0], convert_tag(tagged[k][1][0])) for k in range(len(tagged))]
@@ -229,10 +231,15 @@ def lexicon_sentiment(review, verbose=False):
 print(f'SentiWordNet Sentiment Scoring...')
 for index, row in reviews.iterrows():
     label_sentiment = lexicon_sentiment(row['Reviews'])
-    data.at[index, 'Scoring'] = label_sentiment[0]
+    data.at[index, 'Score'] = label_sentiment[0]
     data.at[index, 'Sentiment'] = label_sentiment[1]
     print(f'scoring...')
-print(f'End SentiWordNet Sentiment Scoring...')
+print(f'End SentiWordNet Sentiment Scoring...\n')
+
+# print(f'SentiWordNet Prediction...')
+# swn_prediction = [lexicon_sentiment(review) for review in reviews['Reviews']]
+# binarizer = MultiLabelBinarizer().fit_transform(swn_prediction)
+# print(f"Accuracy: {np.round(metrics.accuracy_score(y_true=binarizer, y_pred=binarizer), 2)}")
 
 # Overwrite original arrays into a single sentences instead of an array of words.
 # Purpose is to output cleaned data into a new CSV file
