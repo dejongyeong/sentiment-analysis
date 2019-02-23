@@ -22,7 +22,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields)
+data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
 
 
 """
@@ -53,7 +53,7 @@ Data Preprocessing
 # Reference: https://stackoverflow.com/questions/12851791/removing-numbers-from-string
 print(f'Start removing numbers...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = ''.join(w for w in str(row['Reviews']) if not w.isdigit())
+    reviews.at[index, 'Cleaned Reviews'] = ''.join(w for w in str(row['Reviews']) if not w.isdigit())
     print(f'processing {index}...')
 print(f'End removing numbers..\n')
 
@@ -64,25 +64,16 @@ print(f'End removing numbers..\n')
 print(f'Start translation non-english to english...')
 translator = Translator(to_lang='en')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = translator.translate(str(row['Reviews']))
+    reviews.at[index, 'Cleaned Reviews'] = translator.translate(str(row['Cleaned Reviews']))
     print(f'translating {index}...')
 print(f'End translation...\n')
-
-# Spelling Corrections - only for English word
-# Install TextBlob and Download necessary NLTK corpora
-# References: https://textblob.readthedocs.io/en/dev/install.html
-print(f'Start spelling corrections...')
-for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = TextBlob(str(row['Reviews'])).correct()
-    print(f'correcting {index}...')
-print(f'End spelling corrections...\n')
 
 # Regex Insert Space between Punctuation and Letters
 # Remove Punctuation for better Sentiment Analysis
 # https://stackoverflow.com/questions/20705832/python-regex-inserting-a-space-between-punctuation-and-letters/20705997
 print(f'Starting insert space...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Reviews']))
+    reviews.at[index, 'Cleaned Reviews'] = re.sub(r'([a-zA-Z])([,.!()])', r'\1\2 ', str(row['Cleaned Reviews']))
     print(f'processing {index}...')
 print(f'End insert space...\n')
 
@@ -108,7 +99,7 @@ def expand_contractions(word, contraction_mapping=CONTRACTION_MAP):
 
 print(f'Start expand contractions...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = expand_contractions(str(row['Reviews']))
+    reviews.at[index, 'Cleaned Reviews'] = expand_contractions(str(row['Cleaned Reviews']))
     print(f'processing {index}...')
 print(f'End expand contractions...\n')
 
@@ -117,18 +108,28 @@ print(f'End expand contractions...\n')
 # References: https://pythonadventures.wordpress.com/2017/02/05/remove-punctuations-from-a-text/
 print(f'Start remove punctuation...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = str(row['Reviews']).translate(str.maketrans("", "", string.punctuation))
-    reviews.at[index, 'Reviews'] = re.sub(' +', ' ', str(row['Reviews']))
+    reviews.at[index, 'Cleaned Reviews'] = str(row['Cleaned Reviews']).translate(str.maketrans("", "", string.punctuation))
+    reviews.at[index, 'Cleaned Reviews'] = re.sub(' +', ' ', str(row['Cleaned Reviews']))
     print(f'processing {index}...')
 print(f'End remove punctuation...\n')
 
+# Spelling Corrections - only for English word
+# Install TextBlob and Download necessary NLTK corpora
+# References: https://textblob.readthedocs.io/en/dev/quickstart.html#spelling-correction
+# Cons: Slow performance using TextBlob, longer period for data analyzing.
+print(f'Start spelling corrections...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Cleaned Reviews'] = TextBlob(str(row['Cleaned Reviews'])).correct()
+    print(f'correcting {index}...')
+print(f'End spelling corrections...\n')
+
 # Lowercase
-reviews['Reviews'] = reviews['Reviews'].str.lower()
+reviews['Cleaned Reviews'] = reviews['Cleaned Reviews'].str.lower()
 
 # Tokenization
 print(f'Start tokenization...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = word_tokenize(str(row['Reviews']), language='english')
+    reviews.at[index, 'Cleaned Reviews'] = word_tokenize(str(row['Cleaned Reviews']), language='english')
     print(f'tokenizing {index}...')
 print(f'End tokenization...\n')
 
@@ -137,7 +138,7 @@ print(f'End tokenization...\n')
 # Reference: https://stackoverflow.com/questions/33245567/stopword-removal-with-nltk-and-pandas/33246035
 print(f'Start stopwords removal...')
 stopset = stopwords.words('english')
-reviews['Reviews'] = reviews['Reviews'].apply(lambda x: [item for item in x if item not in stopset])
+reviews['Cleaned Reviews'] = reviews['Cleaned Reviews'].apply(lambda x: [item for item in x if item not in stopset])
 print(f'processing...')
 print(f'End stopwords removal...\n')
 
@@ -179,14 +180,14 @@ def tag_and_lemm(element):
 
 print(f'Start lemmatization...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = tag_and_lemm(row['Reviews'])
+    reviews.at[index, 'Cleaned Reviews'] = tag_and_lemm(row['Cleaned Reviews'])
     print(f'lemmatizing {index}...')
 print(f'End lemmatization...\n')
 
 # Remove Single Character Word after Tokenization
 print(f'Start removing single character...')
 for index, row in reviews.iterrows():
-    reviews.at[index, 'Reviews'] = [w for w in row['Reviews'] if len(w) > 1]
+    reviews.at[index, 'Cleaned Reviews'] = [w for w in row['Cleaned Reviews'] if len(w) > 1]
     print(f'removing {index}...')
 print(f'End single character removal...\n')
 
@@ -230,15 +231,16 @@ def lexicon_sentiment(review):
 
 print(f'SentiWordNet Sentiment Scoring...')
 for index, row in reviews.iterrows():
-    label_sentiment = lexicon_sentiment(row['Reviews'])
-    data.at[index, 'Score'] = label_sentiment[0]
-    data.at[index, 'Sentiment'] = label_sentiment[1]
+    label_sentiment = lexicon_sentiment(row['Cleaned Reviews'])
+    reviews.at[index, 'Score'] = label_sentiment[0]
+    reviews.at[index, 'Sentiment'] = label_sentiment[1]
     print(f'scoring {index}...')
 print(f'End SentiWordNet Sentiment Scoring...\n')
 
 # Purpose is to output data with sentiment into a new CSV file
 # Reference: https://stackoverflow.com/questions/46098401/pandas-write-to-string-to-csv-instead-of-an-array
-data.to_csv(r'../datasets/prepared_amazon_unlocked_mobile_datasets_with_sentiment.csv')
+print(f'Output...')
+pd.DataFrame(reviews).to_csv(r'../datasets/prepared_amazon_unlocked_mobile_datasets_with_sentiment.csv', index=False)
 
 # print(f'SentiWordNet Prediction...')
 # swn_prediction = [lexicon_sentiment(review) for review in reviews['Reviews']]
