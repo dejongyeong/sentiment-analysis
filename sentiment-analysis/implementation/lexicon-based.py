@@ -22,7 +22,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, low_memory=False, usecols=fields, nrows=10)
+data = pd.read_csv(filename, low_memory=False, usecols=fields)
 
 
 """
@@ -113,6 +113,13 @@ for index, row in reviews.iterrows():
     print(f'processing {index}...')
 print(f'End remove punctuation...\n')
 
+# Lowercase
+print(f'Start Lowercasing...')
+for index, row in reviews.iterrows():
+    reviews.at[index, 'Cleaned Reviews'] = str(row['Cleaned Reviews']).lower()
+    print(f'lowercasing {index}...')
+print(f'End lowercasing...\n')
+
 # Spelling Corrections - only for English word
 # Install TextBlob and Download necessary NLTK corpora
 # References: https://textblob.readthedocs.io/en/dev/quickstart.html#spelling-correction
@@ -123,9 +130,6 @@ for index, row in reviews.iterrows():
     print(f'correcting {index}...')
 print(f'End spelling corrections...\n')
 
-# Lowercase
-reviews['Cleaned Reviews'] = reviews['Cleaned Reviews'].str.lower()
-
 # Tokenization
 print(f'Start tokenization...')
 for index, row in reviews.iterrows():
@@ -134,12 +138,17 @@ for index, row in reviews.iterrows():
 print(f'End tokenization...\n')
 
 # Stop Words Removal
-# Python Lambda funtion in List Comprehension
-# Reference: https://stackoverflow.com/questions/33245567/stopword-removal-with-nltk-and-pandas/33246035
+# Reference: https://www.geeksforgeeks.org/removing-stop-words-nltk-python/
 print(f'Start stopwords removal...')
 stopset = stopwords.words('english')
-reviews['Cleaned Reviews'] = reviews['Cleaned Reviews'].apply(lambda x: [item for item in x if item not in stopset])
-print(f'processing...')
+for index, row in reviews.iterrows():
+    filtered = [word for word in row['Cleaned Reviews'] if word not in stopset]
+    filtered = []
+    for word in row['Cleaned Reviews']:
+        if word not in stopset:
+            filtered.append(word)
+    reviews.at[index, 'Cleaned Reviews'] = filtered
+    print(f'processing... {index}')
 print(f'End stopwords removal...\n')
 
 
@@ -191,7 +200,6 @@ for index, row in reviews.iterrows():
     print(f'removing {index}...')
 print(f'End single character removal...\n')
 
-
 # SentiWordNet Sentiment Scoring
 # Reference: https://sentiwordnet.isti.cnr.it/
 # Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
@@ -221,21 +229,29 @@ def lexicon_sentiment(review):
             final_score = round(float(pos_score - neg_score) / token_count, 3)
 
         # return array of [final_score, 'sentiment']
-        if final_score > 0.0:
-            return [final_score, 'positive']
-        elif final_score == 0.0:
-            return [final_score, 'neutral']
-        else:
-            return [final_score, 'negative']
+        return final_score
 
 
 print(f'SentiWordNet Sentiment Scoring...')
 for index, row in reviews.iterrows():
-    label_sentiment = lexicon_sentiment(row['Cleaned Reviews'])
-    reviews.at[index, 'Score'] = label_sentiment[0]
-    reviews.at[index, 'Sentiment'] = label_sentiment[1]
+    score = lexicon_sentiment(row['Cleaned Reviews'])
+    if score is None:
+        sentiment = np.NaN
+    elif score > 0.0:
+        sentiment = "positive"
+    elif score < 0.0:
+        sentiment = "negative"
+    else:
+        sentiment = "neutral"
+    reviews.at[index, 'Scoring'] = score
+    reviews.at[index, 'Sentiment'] = sentiment
     print(f'scoring {index}...')
 print(f'End SentiWordNet Sentiment Scoring...\n')
+
+
+# Check and remove rows with null values
+print(f'No. of Null Values: {reviews.isnull().sum().sum()}\n')
+reviews = data.dropna(axis=0, how='any')
 
 # Purpose is to output data with sentiment into a new CSV file
 # Reference: https://stackoverflow.com/questions/46098401/pandas-write-to-string-to-csv-instead-of-an-array
