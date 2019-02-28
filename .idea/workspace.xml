@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15aa3ca3-6184-4c51-bb13-daa4c1418d3b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +14,20 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/sentiment_analysis$implementation.coverage" NAME="implementation Coverage Results" MODIFIED="1549151045608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="901734053">
@@ -59,10 +74,11 @@
     <session id="-839118128">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="csv" value="4" />
           <entry key="gitignore" value="2" />
           <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="36" />
+          <entry key="py" value="42" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -70,37 +86,39 @@
         <counts>
           <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="36" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Python" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="42" />
           <entry key="gitignore" value="41" />
           <entry key="lexicon-based" value="9" />
           <entry key="md" value="133" />
-          <entry key="py" value="19296" />
+          <entry key="py" value="21809" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="133" />
-          <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="19305" />
+          <entry key="PLAIN_TEXT" value="86" />
+          <entry key="Python" value="21818" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="3" />
           <entry key="project.open.time.27" value="2" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="4" />
           <entry key="project.open.time.30" value="2" />
           <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
     </session>
@@ -108,10 +126,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
+        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
               </folding>
@@ -154,7 +172,11 @@
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/utility.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/prototype/test.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/utils.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/test.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/spell.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" />
       </list>
     </option>
   </component>
@@ -194,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,10 +223,34 @@
               <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="implementation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="prototype" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -213,7 +258,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -238,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.lexicon-based">
+  <component name="RunManager" selected="Python.data_prepare">
     <configuration name="implementation" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -301,7 +346,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lexicon-based" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="data_prepare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -311,7 +356,51 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lexicon-based" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="implementation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sentiment-analysis/implementation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\IT Tralee\sentiment-analysis\sentiment-analysis\implementation\data_prepare.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="implementation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sentiment-analysis/implementation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sentiment-analysis/implementation/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -347,10 +436,14 @@
       <item itemvalue="Python.test" />
       <item itemvalue="Python.__init__" />
       <item itemvalue="Python.lexicon-based" />
+      <item itemvalue="Python.test (1)" />
+      <item itemvalue="Python.data_prepare" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.data_prepare" />
         <item itemvalue="Python.lexicon-based" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.__init__" />
       </list>
@@ -373,7 +466,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14630872" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14228188" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -388,13 +481,13 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.2970297" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.3958042" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.29278642" />
+      <window_info anchor="bottom" id="Python Console" order="13" visible="true" weight="0.35944057" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.6684564" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.5339806" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
     </layout>
   </component>
@@ -461,13 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/utils.py" />
     <entry file="file://$PROJECT_DIR$/minimal-stop.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -486,10 +572,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py">
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/test.py" />
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/prototype/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1903">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/datasets/amazon_unlocked_mobile_datasets.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/datasets/prepared_amazon_unlocked_mobile_datasets_with_sentiment.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/spell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
           </folding>
