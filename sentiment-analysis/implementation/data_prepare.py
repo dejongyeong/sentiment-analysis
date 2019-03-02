@@ -34,13 +34,13 @@ print(f'No. of Null Values: {data.isnull().sum().sum()}')
 
 # Data Cleaning
 # Remove Null Values
-review = data.dropna(axis=0, how='any')
+review = data.dropna(axis=0, how='any')  # assign cleaned data into new variable.
 shape = review.shape
 print(f'\nAfter Cleaning:')
 print(f'No. of Rows: {shape[0]}\nNo. of Columns: {shape[1]}')
 print(f'No. of Null Values: {review.isnull().sum().sum()}\n')
 
-# Remove Trailing Spaces
+# Remove leading or trailing spaces
 review.columns = review.columns.str.strip()
 
 # Rename Columns Header
@@ -57,7 +57,7 @@ Data Preprocessing
 print(f'Remove numbers and plus sign in review.text\n')
 review['review.clean'] = review['review.text'].str.replace('\+|\d+', '')
 
-# Convert Non-English word to English and Spelling Correction
+# Convert Non-English word to English
 # TextBlob translation and language detection - powered by Google Translate
 # Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
 # Reference: https://pypi.org/project/translate/
