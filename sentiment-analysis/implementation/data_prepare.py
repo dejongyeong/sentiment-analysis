@@ -19,7 +19,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
-data = pd.read_csv(filename, usecols=fields)
+data = pd.read_csv(filename, usecols=fields, nrows=100000)
 
 
 """
@@ -138,8 +138,10 @@ print(f'End tokenization...\n')
 
 # Stop Words Removal
 # Reference: https://www.geeksforgeeks.org/removing-stop-words-nltk-python/
+# References: https://gist.github.com/sebleier/554280
 print(f'Start stopwords removal...')
 stopset = stopwords.words('english')
+stopset = [item for item in stopset if item not in ('no', 'not', 'nor')]
 for index, row in review.iterrows():
     filtered = [word for word in row['review.token'] if word not in stopset]
     filtered = []
