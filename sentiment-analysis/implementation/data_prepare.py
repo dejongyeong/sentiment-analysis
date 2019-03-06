@@ -58,8 +58,6 @@ print(f'Remove numbers and plus sign in review.text\n')
 review['review.clean'] = review['review.text'].str.replace('\+|\d+', '')
 
 # Convert Non-English word to English
-# TextBlob translation and language detection - powered by Google Translate
-# Note: 100% gooddd! is detected as Welsh by Google, and translated to 100% free!
 # Reference: https://pypi.org/project/translate/
 print(f'Translation non-english to english...')
 translator = Translator(to_lang='en')
@@ -69,7 +67,6 @@ for index, row in review.iterrows():
 print(f'End translation...\n')
 
 # Regex Insert Space between Punctuation and Letters
-# Remove Punctuation for better Sentiment Analysis
 # https://stackoverflow.com/questions/20705832/python-regex-inserting-a-space-between-punctuation-and-letters/20705997
 print(f'Start inserting space...')
 for index, row in review.iterrows():
