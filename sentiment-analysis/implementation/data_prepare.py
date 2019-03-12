@@ -13,8 +13,6 @@ from nltk.corpus import stopwords
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
-from nltk.corpus import sentiwordnet as swn
-from sklearn.preprocessing import MultiLabelBinarizer
 
 # Load CSV file with specific column only
 filename = '../datasets/amazon_unlocked_mobile_datasets.csv'

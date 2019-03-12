@@ -1,3 +1,6 @@
+from nltk.corpus import sentiwordnet as swn
+from sklearn.preprocessing import MultiLabelBinarizer
+
 # # SentiWordNet Sentiment Scoring
 # # Reference: https://sentiwordnet.isti.cnr.it/
 # # Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
