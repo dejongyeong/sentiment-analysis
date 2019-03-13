@@ -1,5 +1,11 @@
+# Import Data
+import pandas as pd
+import numpy as np
 from nltk.corpus import sentiwordnet as swn
 from sklearn.preprocessing import MultiLabelBinarizer
+
+# Load Dataset
+filename = '../datasets/prepared_amazon_unlocked_mobile_datasets.csv'
 
 # # SentiWordNet Sentiment Scoring
 # # Reference: https://sentiwordnet.isti.cnr.it/
