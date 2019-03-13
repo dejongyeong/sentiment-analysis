@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15aa3ca3-6184-4c51-bb13-daa4c1418d3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sentiment-analysis/datasets/prepared_amazon_unlocked_mobile_datasets.zip" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/datasets/prepared_amazon_unlocked_mobile_datasets.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py" afterDir="false" />
     </list>
@@ -78,7 +79,7 @@
           <entry key="gitignore" value="4" />
           <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="56" />
+          <entry key="py" value="64" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -87,7 +88,7 @@
           <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Python" value="56" />
+          <entry key="Python" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -96,7 +97,7 @@
           <entry key="gitignore" value="41" />
           <entry key="lexicon-based" value="9" />
           <entry key="md" value="133" />
-          <entry key="py" value="25025" />
+          <entry key="py" value="26327" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -104,7 +105,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="86" />
-          <entry key="Python" value="25034" />
+          <entry key="Python" value="26336" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -129,8 +130,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="-2384">
+              <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
               <folding>
                 <element signature="e#98#107#0" expanded="true" />
               </folding>
@@ -177,6 +178,7 @@
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon-based.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/spell.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/test.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py" />
       </list>
@@ -188,9 +190,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="1228" />
+    <option name="width" value="977" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -235,12 +237,6 @@
               <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="implementation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -279,7 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.lexicon_based">
+  <component name="RunManager" selected="Python.data_prepare">
     <configuration name="implementation" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -324,9 +320,6 @@
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sentiment-analysis/implementation" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -437,9 +430,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.data_prepare" />
         <item itemvalue="Python.lexicon_based" />
         <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.data_prepare" />
         <item itemvalue="Python.lexicon-based" />
         <item itemvalue="Python.test" />
       </list>
@@ -459,9 +452,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="982" height="840" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.54218537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3181208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -472,16 +466,16 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32390383" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32587412" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.3649222" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.39745402" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3606789" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="13" visible="true" weight="0.36503497" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.5314534" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.52818793" />
       <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
     </layout>
@@ -569,13 +563,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/datasets/prepared_amazon_unlocked_mobile_datasets_with_sentiment.csv" />
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/spell.py" />
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="147" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -590,10 +577,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/contractions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="130" column="25" lean-forward="true" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/lexicon_based.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="85" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="69" />
           <folding>
             <element signature="e#14#33#0" expanded="true" />
           </folding>
@@ -602,8 +596,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/data_prepare.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="-2384">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
           <folding>
             <element signature="e#98#107#0" expanded="true" />
           </folding>

@@ -127,7 +127,9 @@ print(f'End lowercasing...\n')
 # Tokenization
 print(f'Start tokenization...')
 print(f'processing...')
-review['review.token'] = review.apply(lambda row: word_tokenize(row['review.clean'], language='english'), axis=1)
+for index, row in review.iterrows():
+    review.at[index, 'review.clean'] = word_tokenize(row['review.clean'], language='english')
+    print(f'lowercasing {index}...')
 print(f'End tokenization...\n')
 
 # Stop Words Removal
@@ -137,12 +139,12 @@ print(f'Start stopwords removal...')
 stopset = stopwords.words('english')
 stopset = [item for item in stopset if item not in ('no', 'not', 'nor')]
 for index, row in review.iterrows():
-    filtered = [word for word in row['review.token'] if word not in stopset]
+    filtered = [word for word in row['review.clean'] if word not in stopset]
     filtered = []
-    for word in row['review.token']:
+    for word in row['review.clean']:
         if word not in stopset:
             filtered.append(word)
-    review.at[index, 'review.token'] = filtered
+    review.at[index, 'review.clean'] = filtered
     print(f'processing {index}...')
 print(f'End stopwords removal...\n')
 
@@ -186,12 +188,12 @@ def tag_and_lemm(element):
         else:
             words.append(lemmatizer.lemmatize(word, wn_tag))
 
-    return words
+    return ' '.join(words)
 
 
 print(f'Start lemmatization...')
 for index, row in review.iterrows():
-    review.at[index, 'review.token'] = tag_and_lemm(row['review.token'])
+    review.at[index, 'review.clean'] = tag_and_lemm(row['review.clean'])
     print(f'lemmatizing {index}...')
 print(f'End lemmatization...\n')
 
