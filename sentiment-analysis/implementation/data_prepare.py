@@ -9,7 +9,7 @@ import string
 import pandas as pd
 from textblob import TextBlob
 from translate import Translator
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, wordnet
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
@@ -156,18 +156,18 @@ def convert_tag(penn_tag):
     """
     Convert between PennTreebank to WordNet tags
     """
-    part = {
-        'N': 'n',  # Noun
-        'V': 'v',  # Verb
-        'J': 'a',  # Adjective
-        'S': 's',  # Adjective Satellite
-        'R': 'r'  # Adverb
-    }
-
-    if penn_tag in part.keys():
-        return part[penn_tag]
+    if penn_tag.startswith('N'):     # Noun
+        return wordnet.NOUN
+    elif penn_tag.startswith('V'):   # Verb
+        return wordnet.VERB
+    elif penn_tag.startswith('J'):   # Adjective
+        return wordnet.ADJ
+    elif penn_tag.startswith('S'):   # Adjective Satellite
+        return 's'
+    elif penn_tag.startswith('R'):   # Adverb
+        return wordnet.ADV
     else:
-        return None  # other parts of speech will be tagged as nouns
+        return None  # other parts of speech will be returned as none
 
 
 def tag_and_lemm(element):

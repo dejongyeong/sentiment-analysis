@@ -6,6 +6,9 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 # Load Dataset
 filename = '../datasets/prepared_amazon_unlocked_mobile_datasets.csv'
+names = ['product.name', 'brand.name', 'review.text', 'review.clean', 'review.token']
+
+data = pd.read_csv(filename, names=names, usecols=['brand.name', 'review.clean', 'review.token'])
 
 # # SentiWordNet Sentiment Scoring
 # # Reference: https://sentiwordnet.isti.cnr.it/
