@@ -19,7 +19,6 @@ filename = '../datasets/amazon_unlocked_mobile_datasets.csv'
 fields = ['Product Name', 'Brand Name', 'Reviews']
 data = pd.read_csv(filename, usecols=fields, nrows=100000)
 
-
 """
 Data Understanding and Analyzing
 """
@@ -148,15 +147,14 @@ for index, row in review.iterrows():
 print(f'End stopwords removal...\n')
 
 
-# Part of Speeh Tagging and Lemmatization
+# Part of Speeh Tagging and WordNet Lemmatization
 # Convert Penn treebank tag to WordNet Tag
-# WordNet Lemmatizer with NLTK Libraries
+# Reference: https://github.com/prateek22sri/Sentiment-analysis/blob/master/unigramSentiWordNet.py
 # Reference: https://github.com/KT12/tag-lemmatize/blob/master/tag-lemmatize.py
-# Reference: https://linguistics.stackexchange.com/questions/6508/which-part-of-speech-are-s-and-r-in-wordnet
+# Reference: https://wordnet.princeton.edu/documentation/wnintro3wn
 def convert_tag(penn_tag):
     """
-    convert_tag() accepts the **first letter** of a Penn part-of-speech tag,
-    then uses a dict lookup to convert it to the appropriate WordNet tag.
+    Convert between PennTreebank to WordNet tags
     """
     part = {
         'N': 'n',  # Noun
@@ -169,8 +167,7 @@ def convert_tag(penn_tag):
     if penn_tag in part.keys():
         return part[penn_tag]
     else:
-        # other parts of speech will be tagged as nouns
-        return 'n'
+        return None  # other parts of speech will be tagged as nouns
 
 
 def tag_and_lemm(element):
@@ -179,8 +176,17 @@ def tag_and_lemm(element):
     """
     lemmatizer = WordNetLemmatizer()
     sentence = pos_tag(element)
+    words = []
+
     # list of tuples [('token', 'tag'), ('token2', 'tag2')...]
-    return [lemmatizer.lemmatize(sentence[k][0], convert_tag(sentence[k][1][0])) for k in range(len(sentence))]
+    for word, tag in sentence:
+        wn_tag = convert_tag(tag)
+        if wn_tag is None:
+            continue
+        else:
+            words.append(lemmatizer.lemmatize(word, wn_tag))
+
+    return words
 
 
 print(f'Start lemmatization...')
