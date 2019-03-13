@@ -8,8 +8,9 @@ import re
 import string
 import pandas as pd
 from textblob import TextBlob
+from utils import convert_tag
 from translate import Translator
-from nltk.corpus import stopwords, wordnet
+from nltk.corpus import stopwords
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from contractions import CONTRACTION_MAP
@@ -147,29 +148,6 @@ for index, row in review.iterrows():
     review.at[index, 'review.clean'] = filtered
     print(f'processing {index}...')
 print(f'End stopwords removal...\n')
-
-
-# Part of Speeh Tagging and WordNet Lemmatization
-# Convert Penn treebank tag to WordNet Tag
-# Reference: https://github.com/prateek22sri/Sentiment-analysis/blob/master/unigramSentiWordNet.py
-# Reference: https://github.com/KT12/tag-lemmatize/blob/master/tag-lemmatize.py
-# Reference: https://wordnet.princeton.edu/documentation/wnintro3wn
-def convert_tag(penn_tag):
-    """
-    Convert between PennTreebank to WordNet tags
-    """
-    if penn_tag.startswith('N'):     # Noun
-        return wordnet.NOUN
-    elif penn_tag.startswith('V'):   # Verb
-        return wordnet.VERB
-    elif penn_tag.startswith('J'):   # Adjective
-        return wordnet.ADJ
-    elif penn_tag.startswith('S'):   # Adjective Satellite
-        return 's'
-    elif penn_tag.startswith('R'):   # Adverb
-        return wordnet.ADV
-    else:
-        return None  # other parts of speech will be returned as none
 
 
 def tag_and_lemm(element):
