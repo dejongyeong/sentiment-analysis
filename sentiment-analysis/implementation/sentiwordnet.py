@@ -1,6 +1,6 @@
 # Import Data
 import pandas as pd
-from utils import convert_tag, lexicon_sentiment, sentiment
+from utils import lexicon_sentiment, sentiment
 
 # Load Dataset
 filename = '../datasets/prepared_amazon_unlocked_mobile_datasets.csv'
@@ -19,5 +19,6 @@ for index, row in data.iterrows():
     print(f'scoring {index}...')
 print(f'End SentiWordNet Sentiment Scoring...\n')
 
-# print(f'Output...')
-pd.DataFrame(data).to_csv(r'../datasets/amazon_unlocked_mobile_datasets_with_sentiment.csv', index=False, header=None)
+print(f'Output...')
+filename = r'../datasets/test_amazon_unlocked_mobile_datasets_with_sentiment.csv'
+pd.DataFrame(data).to_csv(filename, index=False, header=None)

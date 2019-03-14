@@ -1,6 +1,7 @@
 import numpy as np
+from nltk import pos_tag
 from nltk.corpus import wordnet
-from nltk import word_tokenize, pos_tag
+from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import sentiwordnet as swn
 
 
@@ -27,12 +28,15 @@ def convert_tag(penn_tag):
         return None  # other parts of speech will be returned as none
 
 
+token = RegexpTokenizer(r'\w+')
+
+
 # SentiWordNet Sentiment Scoring
 # Reference: https://sentiwordnet.isti.cnr.it/
 # Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
 # Usage: sentiwordnet.senti_synsets('good', 'n')
 def lexicon_sentiment(review):
-    tagged = pos_tag(word_tokenize(review))
+    tagged = pos_tag(token.tokenize(review))
     pos_score = neg_score = token_count = obj_score = 0
     ss_set = [swn.senti_synsets(tagged[k][0], convert_tag(tagged[k][1][0])) for k in range(len(tagged))]
     if ss_set:
@@ -61,7 +65,7 @@ def lexicon_sentiment(review):
 
 def sentiment(final_score):
     if final_score is None:
-        return np.NaN
+        return np.nan
     elif final_score > 0.0:
         return "positive"
     elif final_score < 0.0:
