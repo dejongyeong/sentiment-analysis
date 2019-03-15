@@ -1,3 +1,12 @@
+"""
+Created on Sun Feb 03 12:45am 2019
+@author: De Jong Yeong (T00185309)
+
+Utility function for sentiment analysis implementation.
+
+Output file: prepared_amazon_unlocked_mobile_datasets.csv
+"""
+
 import numpy as np
 from nltk import pos_tag
 from nltk.corpus import wordnet
@@ -5,11 +14,11 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import sentiwordnet as swn
 
 
-# Part of Speeh Tagging and WordNet Lemmatization
-# Convert Penn treebank tag to WordNet Tag
-# Reference: https://github.com/prateek22sri/Sentiment-analysis/blob/master/unigramSentiWordNet.py
-# Reference: https://github.com/KT12/tag-lemmatize/blob/master/tag-lemmatize.py
-# Reference: https://wordnet.princeton.edu/documentation/wnintro3wn
+# part of speeh tagging and wordnet lemmatization
+# convert penn treebank tag to wordnet tag
+# reference: https://github.com/prateek22sri/Sentiment-analysis/blob/master/unigramSentiWordNet.py
+# reference: https://github.com/KT12/tag-lemmatize/blob/master/tag-lemmatize.py
+# reference: https://wordnet.princeton.edu/documentation/wnintro3wn
 def convert_tag(penn_tag):
     """
     Convert between PennTreebank to WordNet tags
@@ -31,10 +40,10 @@ def convert_tag(penn_tag):
 token = RegexpTokenizer(r'\w+')
 
 
-# SentiWordNet Sentiment Scoring
-# Reference: https://sentiwordnet.isti.cnr.it/
-# Reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
-# Usage: sentiwordnet.senti_synsets('good', 'n')
+# sentiwordnet sentiment scoring
+# reference: https://sentiwordnet.isti.cnr.it/
+# reference: https://www.tutorialspoint.com/How-to-catch-StopIteration-Exception-in-Python
+# usage: sentiwordnet.senti_synsets('good', 'n')
 def lexicon_sentiment(review):
     tagged = pos_tag(token.tokenize(review))
     pos_score = neg_score = token_count = obj_score = 0
