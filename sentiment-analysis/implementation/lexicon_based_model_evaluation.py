@@ -48,3 +48,12 @@ Created on Wed March 06 3:45pm 2019
 # # binarizer = MultiLabelBinarizer().fit_transform(swn_prediction)
 # # print(f"Accuracy: {np.round(metrics.accuracy_score(y_true=binarizer, y_pred=binarizer), 2)}")
 
+
+# print(f'SentiWordNet Sentiment Scoring...')
+# for index, row in data.iterrows():
+#     score = lexicon_sentiment(row['review.clean'])
+#     data.at[index, 'scores'] = score
+#     data.at[index, 'sentiment'] = sentiment(score)
+#     print(f'scoring {index}...')
+# print(f'End SentiWordNet Sentiment Scoring...\n')
+
