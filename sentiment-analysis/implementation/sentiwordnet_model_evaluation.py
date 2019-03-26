@@ -81,7 +81,19 @@ metrics = pd.DataFrame([metrics], columns=['accuracy', 'precision', 'recall', 'f
 print('Performance Metrics:')
 print(tabulate(metrics, headers='keys', tablefmt='github'))
 
-print('\nConfusion Matrix:')
+# visualize performance metrics
+fig = plt.figure()
+ax = metrics.plot.bar()
+plt.title('SentiWordNet Performance Evaluation\n')
+plt.ylabel('result')
+plt.xlabel('metrics')
+plt.xticks(rotation=-360)  # rotate x labels
+plt.ylim([0.1, 1.0])
+plt.show()
+
+
+
+print('\nConfusion Matrix:\n')
 
 # display and plot confusion matrix
 labels = ['positive', 'negative', 'neutral']
@@ -91,7 +103,7 @@ cm = mt.confusion_matrix(testY, pred, labels=labels)
 # references: https://stackoverflow.com/questions/19233771/sklearn-plot-confusion-matrix-with-labels/48018785
 fig = plt.figure()
 ax = fig.add_subplot(111)
-plt.title('Confusion Matrix of SentiWordNet')
+plt.title('Confusion Matrix of SentiWordNet\n')
 fig.colorbar(ax.matshow(cm))
 ax.set_xticklabels([''] + labels)
 ax.set_yticklabels([''] + labels)
@@ -104,9 +116,9 @@ level = [len(labels)*[0], list(range(len(labels)))]
 cmf = pd.DataFrame(data=cm,
                    columns=pd.MultiIndex(levels=[['predicted:'], labels], labels=level),
                    index=pd.MultiIndex(levels=[['actual:'], labels], labels=level))
-print(tabulate(cmf, headers='keys', tablefmt='github'))
+print(cmf)
 
-print('\nClassification Report:')
+print('\nClassification Report:\n')
 
 # classification report
 # references: https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics
