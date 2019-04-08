@@ -91,8 +91,6 @@ plt.xticks(rotation=-360)  # rotate x labels
 plt.ylim([0.1, 1.0])
 plt.show()
 
-
-
 print('\nConfusion Matrix:\n')
 
 # display and plot confusion matrix
