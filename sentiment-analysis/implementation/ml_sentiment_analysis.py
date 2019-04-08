@@ -20,7 +20,7 @@ from tabulate import tabulate
 from matplotlib import pyplot as plt
 import sklearn.model_selection as ms
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # load data
 filename = '../datasets/amazon_unlocked_mobile_datasets_with_sentiment.csv'
@@ -50,14 +50,14 @@ print()
 # max_df ignore terms that have a document frequency higher than threshold when building vocab
 # ngram_range a tuple of lower and upp \er boundary of range of n-values for different n-grams to be extracted.
 # extract 2-grams of words in addition to be 1-grams of individual words
-tv = TfidfVectorizer(use_idf=True, min_df=0.0, max_df=1.0, ngram_range=(1, 2), sublinear_tf=False)
+tv = TfidfVectorizer(use_idf=True, min_df=0.0, max_df=1.0, ngram_range=(1, 2), sublinear_tf=False, stop_words='english')
 tv_train = tv.fit_transform(trainX.ravel())
 tv_test = tv.transform(testX.ravel())  # transform test review into features
 
 print(f'tfidf model: train: {tv_test.shape} || test: {tv_test.shape}')
 print('feature extraction --- end')
 
-feature = tv.get_feature_names()[0:100]
+feature = tv.get_feature_names()[0:200]
 
 print()
 
