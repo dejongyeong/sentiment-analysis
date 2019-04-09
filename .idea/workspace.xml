@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15aa3ca3-6184-4c51-bb13-daa4c1418d3b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/ml_sentiment_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/ml_sentiment_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment-analysis/implementation/sentiwordnet_model_evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/implementation/sentiwordnet_model_evaluation.py" afterDir="false" />
@@ -78,7 +79,7 @@
           <entry key="gitignore" value="4" />
           <entry key="ipynb" value="3" />
           <entry key="md" value="1" />
-          <entry key="py" value="179" />
+          <entry key="py" value="180" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -87,7 +88,7 @@
           <entry key="IPNB" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="19" />
-          <entry key="Python" value="179" />
+          <entry key="Python" value="180" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -97,7 +98,7 @@
           <entry key="lexicon-based" value="9" />
           <entry key="md" value="133" />
           <entry key="ml_sentiment_analysis" value="5" />
-          <entry key="py" value="56168" />
+          <entry key="py" value="56371" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -105,7 +106,7 @@
         <counts>
           <entry key="Markdown" value="133" />
           <entry key="PLAIN_TEXT" value="176" />
-          <entry key="Python" value="56182" />
+          <entry key="Python" value="56385" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -131,35 +132,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="92" selection-start-line="92" selection-end-line="92" selection-end-column="103" />
-              <folding>
-                <element signature="e#503#521#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/sentiwordnet_model_evaluation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="84" column="103" selection-start-line="84" selection-start-column="103" selection-end-line="84" selection-end-column="103" />
-              <folding>
-                <element signature="e#645#663#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/ml_sentiment_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="87" column="103" selection-start-line="87" selection-start-column="103" selection-end-line="87" selection-end-column="103" />
+            <state relative-caret-position="238">
+              <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
               <folding>
                 <element signature="e#447#465#0" expanded="true" />
               </folding>
@@ -218,8 +195,8 @@
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/utils.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/test.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/emoticons.py" />
-        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/sentiwordnet_model_evaluation.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py" />
         <option value="$PROJECT_DIR$/sentiment-analysis/implementation/ml_sentiment_analysis.py" />
       </list>
     </option>
@@ -277,13 +254,13 @@
               <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="implementation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sentiment-analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
               <item name="sentiment-analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -300,14 +277,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IT Tralee\sentiment-analysis\sentiment-analysis\implementation" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT Tralee\sentiment-analysis\sentiment-analysis\results" />
       <recent name="D:\IT Tralee\Final Year Project\implementation" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis\prototype" />
       <recent name="D:\IT Tralee\Final Year Project\implementation\sentiment-analysis\datasets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IT Tralee\sentiment-analysis\sentiment-analysis\implementation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,7 +300,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hybrid_sentiment_analysis">
+  <component name="RunManager" selected="Python.ml_sentiment_analysis">
     <configuration name="implementation" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="implementation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -474,8 +452,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hybrid_sentiment_analysis" />
         <item itemvalue="Python.ml_sentiment_analysis" />
+        <item itemvalue="Python.hybrid_sentiment_analysis" />
         <item itemvalue="Python.sentiwordnet_model_evaluation" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.label_sentiment" />
@@ -499,6 +477,31 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49799198" visible="true" weight="0.24040511" />
+      <window_info id="Structure" order="1" sideWeight="0.502008" side_tool="true" weight="0.15503356" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32296136" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.46324548" side_tool="true" weight="0.30975956" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49930653" weight="0.33154505" />
+      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.5367545" visible="true" weight="0.35622317" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.34701493" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32942432" />
+      <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
+    </layout>
+    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49799198" weight="0.3160981" />
       <window_info id="Structure" order="1" sideWeight="0.502008" side_tool="true" weight="0.15503356" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -519,10 +522,10 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" visible="true" weight="0.33102345" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49372384" weight="0.34701493" />
       <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="145" height="640" id="Documentation" order="5" sideWeight="0.50627613" side_tool="true" weight="1.0" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -672,30 +675,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="92" selection-start-line="92" selection-end-line="92" selection-end-column="103" />
-          <folding>
-            <element signature="e#503#521#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/sentiwordnet_model_evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="84" column="103" selection-start-line="84" selection-start-column="103" selection-end-line="84" selection-end-column="103" />
+        <state relative-caret-position="294">
+          <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
           <folding>
             <element signature="e#645#663#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/hybrid_sentiment_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="104" column="24" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="24" />
+          <folding>
+            <element signature="e#503#521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/implementation/ml_sentiment_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="87" column="103" selection-start-line="87" selection-start-column="103" selection-end-line="87" selection-end-column="103" />
+        <state relative-caret-position="238">
+          <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
           <folding>
             <element signature="e#447#465#0" expanded="true" />
           </folding>

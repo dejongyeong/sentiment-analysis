@@ -102,6 +102,7 @@ for item in ax.patches:  # show value on plot
     ax.annotate(np.round(item.get_height(), decimals=2), (item.get_x() + item.get_width() / 2., item.get_height()),
                 ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 plt.show()
+plt.savefig('../results/hybrid_performance.png')  # save result
 
 print('\nConfusion Matrix of Hybrid Approach:\n')
 
@@ -120,6 +121,7 @@ ax.set_yticklabels([''] + labels)
 plt.xlabel('predicted')
 plt.ylabel('true')
 plt.show()
+plt.savefig('../results/hybrid_confusion_matrix.png')  # save result
 
 # display in table format
 level = [len(labels)*[0], list(range(len(labels)))]

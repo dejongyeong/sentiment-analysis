@@ -94,6 +94,8 @@ for item in ax.patches:  # show value on plot
     ax.annotate(np.round(item.get_height(), decimals=2), (item.get_x() + item.get_width() / 2., item.get_height()),
                 ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 plt.show()
+plt.savefig('../results/lexicon_performance.png')  # save result
+
 
 print('\nConfusion Matrix:\n')
 
@@ -105,13 +107,14 @@ cm = mt.confusion_matrix(testY, pred, labels=labels)
 # references: https://stackoverflow.com/questions/19233771/sklearn-plot-confusion-matrix-with-labels/48018785
 fig = plt.figure()
 ax = fig.add_subplot(111)
-plt.title('Confusion Matrix of SentiWordNet\n')
+plt.title('Confusion Matrix of Lexicon-based Approach\n')
 fig.colorbar(ax.matshow(cm))
 ax.set_xticklabels([''] + labels)
 ax.set_yticklabels([''] + labels)
 plt.xlabel('predicted')
 plt.ylabel('true')
 plt.show()
+plt.savefig('../results/lexicon_confusion_matrix.png')  # save result
 
 # display in table format
 level = [len(labels)*[0], list(range(len(labels)))]
