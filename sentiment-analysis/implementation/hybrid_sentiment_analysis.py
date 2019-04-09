@@ -5,22 +5,25 @@ Created on Monday April 1 2019 4:45pm
 Hybrid approach for sentiment analysis. It is the combination of lexicon-based technique and machine learning technique
 to perform sentiment analysis.
 
-Reference: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5912726/
-Reference: https://www.sciencedirect.com/science/article/pii/S095741741630584X
-Reference: https://www.irjet.net/archives/V3/i6/IRJET-V3I6539.pdf
+Reference: https://www.youtube.com/watch?v=LWJSc7JDs0s&t=12s
+Reference: https://github.com/chrisjmccormick/LSA_Classification/blob/master/inspect_LSA.py
 
 Output file: -
+
+Future Work: consider emoticons like :D or :( when performing sentiment analysis.
 """
 
 # import module
-import re
 import numpy as np
 import pandas as pd
 import sklearn.metrics as mt
+from tabulate import tabulate
+from sklearn.svm import LinearSVC
 import sklearn.model_selection as ms
-from sklearn.feature_selection import chi2
-from sklearn.naive_bayes import MultinomialNB
-from utils import lexicon_sentiment, sentiment
+from matplotlib import pyplot as plt
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import Normalizer
+from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # load data
@@ -45,10 +48,86 @@ print('split data --- end')
 
 print()
 
+# feature extraction
 print('feature extraction --- start')
-tv = TfidfVectorizer(use_idf=True, min_df=0.0, max_df=1.0, ngram_range=(1, 2), sublinear_tf=False)
+tv = TfidfVectorizer(use_idf=True, min_df=0.0, max_df=1.0, ngram_range=(1, 2), sublinear_tf=False,
+                     max_features=10000, smooth_idf=True, stop_words='english')
 tv_train = tv.fit_transform(trainX.ravel())
 tv_test = tv.transform(testX.ravel())  # transform test review into features
 print('feature extraction --- end')
 
 print()
+
+# latent semantic analysis on train data (lexicon based)
+print('latent semantic analysis --- start')
+svd = TruncatedSVD(100)
+lsa = make_pipeline(svd, Normalizer(copy=False))
+lsa_train = lsa.fit_transform(tv_train)
+lsa_test = lsa.transform(tv_test)  # transform tfidf test
+print('latent semantic analysis --- end')
+
+print()
+
+# build model and predict with lsa train (machine learning)
+print('build and predict --- start')
+svm = LinearSVC()
+svm.fit(lsa_train, trainY)
+svm_pred = svm.predict(lsa_test)
+print('build and predict --- end')
+
+print()
+
+# evaluation
+print('\nModel Evaluation:')
+tv_accuracy = np.round(mt.accuracy_score(testY, svm_pred), 3)
+tv_precision = np.round(mt.precision_score(testY, svm_pred, average='macro'), 3)
+tv_recall = np.round(mt.recall_score(testY, svm_pred, average='macro'), 3)
+tv_f1 = np.round(mt.f1_score(testY, svm_pred, average='macro'), 3)
+
+tv_metrics = np.array([tv_accuracy, tv_precision, tv_recall, tv_f1])
+tv_metrics = pd.DataFrame([tv_metrics], columns=['accuracy', 'precision', 'recall', 'f1'], index=['metrics'])
+print('Performance Metrics:')
+print(tabulate(tv_metrics, headers='keys', tablefmt='github'))
+
+# visualization
+fig = plt.figure()
+ax = tv_metrics.plot.bar()
+plt.title('Hybrid Approach Performance Evaluation\n')
+plt.ylabel('result')
+plt.xlabel('model evualtion')
+plt.xticks(rotation=-360)  # rotate x labels
+plt.ylim([0.1, 1.0])
+plt.show()
+
+print('\nConfusion Matrix of Hybrid Approach:\n')
+
+# display and plot confusion matrix
+labels = ['positive', 'negative', 'neutral']
+svm_cm = mt.confusion_matrix(testY, svm_pred, labels=labels)
+
+# plot
+# display and plot confusion matrix
+fig = plt.figure()
+ax = fig.add_subplot(111)
+plt.title('Confusion Matrix of Hybrid Approach\n')
+fig.colorbar(ax.matshow(svm_cm))
+ax.set_xticklabels([''] + labels)
+ax.set_yticklabels([''] + labels)
+plt.xlabel('predicted')
+plt.ylabel('true')
+plt.show()
+
+# display in table format
+level = [len(labels)*[0], list(range(len(labels)))]
+svm_cmf = pd.DataFrame(data=svm_cm,
+                       columns=pd.MultiIndex(levels=[['predicted:'], labels], labels=level),
+                       index=pd.MultiIndex(levels=[['actual:'], labels], labels=level))
+print(svm_cmf)
+
+# classification report for hybrid approach
+svm_report = mt.classification_report(testY, svm_pred, labels=labels)
+print(svm_report)
+
+print()
+
+# end of hybrid approach

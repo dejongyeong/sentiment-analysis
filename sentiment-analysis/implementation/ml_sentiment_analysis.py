@@ -66,7 +66,7 @@ print('prediction --- start')
 # multinomial naive bayes predict on tfidf
 mnb = MultinomialNB()
 mnb.fit(tv_train, trainY)  # build model
-tv_pred = mnb.predict(tv_test)  # predict using model
+mnb_pred = mnb.predict(tv_test)  # predict using model
 print('prediction --- end')
 
 print()
@@ -74,12 +74,12 @@ print()
 # evaluation
 # reference: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score
 print('\nModel Evaluation:')
-tv_accuracy = np.round(mt.accuracy_score(testY, tv_pred), 2)
-tv_precision = np.round(mt.precision_score(testY, tv_pred, average='macro'), 2)
-tv_recall = np.round(mt.recall_score(testY, tv_pred, average='macro'), 2)
-tv_f1 = np.round(mt.f1_score(testY, tv_pred, average='macro'), 2)
+mnb_accuracy = np.round(mt.accuracy_score(testY, mnb_pred), 3)
+mnb_precision = np.round(mt.precision_score(testY, mnb_pred, average='macro'), 3)
+mnb_recall = np.round(mt.recall_score(testY, mnb_pred, average='macro'), 3)
+mnb_f1 = np.round(mt.f1_score(testY, mnb_pred, average='macro'), 3)
 
-tv_metrics = np.array([tv_accuracy, tv_precision, tv_recall, tv_f1])
+tv_metrics = np.array([mnb_accuracy, mnb_precision, mnb_recall, mnb_f1])
 tv_metrics = pd.DataFrame([tv_metrics], columns=['accuracy', 'precision', 'recall', 'f1'], index=['metrics'])
 print('Performance Metrics:')
 print(tabulate(tv_metrics, headers='keys', tablefmt='github'))
@@ -87,26 +87,26 @@ print(tabulate(tv_metrics, headers='keys', tablefmt='github'))
 # visualization
 fig = plt.figure()
 ax = tv_metrics.plot.bar()
-plt.title('MultinomialNB Performance Evaluation\n')
+plt.title('Machine Learning Approach Performance Evaluation\n')
 plt.ylabel('result')
 plt.xlabel('model evualtion')
 plt.xticks(rotation=-360)  # rotate x labels
 plt.ylim([0.1, 1.0])
 plt.show()
 
-print('\nConfusion Matrix of MultinomialNB:\n')
+print('\nConfusion Matrix of Machine Learning Approach:\n')
 
-# display and plot confusion matrix of bag-of-word
+# display and plot confusion matrix
 labels = ['positive', 'negative', 'neutral']
-cv_cm = mt.confusion_matrix(testY, tv_pred, labels=labels)
+cv_cm = mt.confusion_matrix(testY, mnb_pred, labels=labels)
 
 # plot
 # references: https://stackoverflow.com/questions/19233771/sklearn-plot-confusion-matrix-with-labels/48018785
 # display and plot confusion matrix
-tv_cm = mt.confusion_matrix(testY, tv_pred, labels=labels)
+tv_cm = mt.confusion_matrix(testY, mnb_pred, labels=labels)
 fig = plt.figure()
 ax = fig.add_subplot(111)
-plt.title('Confusion Matrix of MultinomialNB\n')
+plt.title('Confusion Matrix of Machine Learning Approach\n')
 fig.colorbar(ax.matshow(tv_cm))
 ax.set_xticklabels([''] + labels)
 ax.set_yticklabels([''] + labels)
@@ -123,8 +123,8 @@ print(tv_cmf)
 
 print('\nClassification Report of MultinomialNB with TF-IDF Feature Extraction:\n')
 
-# classification report for tf-idf
-tv_report = mt.classification_report(testY, tv_pred, labels=labels)
+# classification report for machine learning
+tv_report = mt.classification_report(testY, mnb_pred, labels=labels)
 print(tv_report)
 
 print()

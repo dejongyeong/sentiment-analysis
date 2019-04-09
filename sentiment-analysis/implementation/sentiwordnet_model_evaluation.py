@@ -84,7 +84,7 @@ print(tabulate(metrics, headers='keys', tablefmt='github'))
 # visualize performance metrics
 fig = plt.figure()
 ax = metrics.plot.bar()
-plt.title('SentiWordNet Performance Evaluation\n')
+plt.title('Lexicon-based Approach Performance Evaluation\n')
 plt.ylabel('result')
 plt.xlabel('metrics')
 plt.xticks(rotation=-360)  # rotate x labels
