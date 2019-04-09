@@ -85,6 +85,7 @@ print('Performance Metrics:')
 print(tabulate(tv_metrics, headers='keys', tablefmt='github'))
 
 # visualization
+# reference: https://stackoverflow.com/questions/25447700/annotate-bars-with-values-on-pandas-bar-plots
 fig = plt.figure()
 ax = tv_metrics.plot.bar()
 plt.title('Machine Learning Approach Performance Evaluation\n')
@@ -92,6 +93,9 @@ plt.ylabel('result')
 plt.xlabel('model evualtion')
 plt.xticks(rotation=-360)  # rotate x labels
 plt.ylim([0.1, 1.0])
+for item in ax.patches:  # show value on plot
+    ax.annotate(np.round(item.get_height(), decimals=2), (item.get_x() + item.get_width() / 2., item.get_height()),
+                ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 plt.show()
 
 print('\nConfusion Matrix of Machine Learning Approach:\n')

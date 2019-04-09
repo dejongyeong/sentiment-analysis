@@ -82,6 +82,7 @@ print('Performance Metrics:')
 print(tabulate(metrics, headers='keys', tablefmt='github'))
 
 # visualize performance metrics
+# reference: https://stackoverflow.com/questions/25447700/annotate-bars-with-values-on-pandas-bar-plots
 fig = plt.figure()
 ax = metrics.plot.bar()
 plt.title('Lexicon-based Approach Performance Evaluation\n')
@@ -89,6 +90,9 @@ plt.ylabel('result')
 plt.xlabel('metrics')
 plt.xticks(rotation=-360)  # rotate x labels
 plt.ylim([0.1, 1.0])
+for item in ax.patches:  # show value on plot
+    ax.annotate(np.round(item.get_height(), decimals=2), (item.get_x() + item.get_width() / 2., item.get_height()),
+                ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 plt.show()
 
 print('\nConfusion Matrix:\n')
