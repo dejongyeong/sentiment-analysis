@@ -95,8 +95,9 @@ plt.ylim([0.1, 1.0])
 for item in ax.patches:  # show value on plot
     ax.annotate(np.round(item.get_height(), decimals=2), (item.get_x() + item.get_width() / 2., item.get_height()),
                 ha='center', va='center', xytext=(0, 10), textcoords='offset points')
+plt.savefig('../results/ml_performance.png', format='png', transparent=False)  # save result
 plt.show()
-plt.savefig('../results/ml_performance.png')  # save result
+
 
 print('\nConfusion Matrix of Machine Learning Approach:\n')
 
@@ -116,8 +117,8 @@ ax.set_xticklabels([''] + labels)
 ax.set_yticklabels([''] + labels)
 plt.xlabel('predicted')
 plt.ylabel('true')
+plt.savefig('../results/ml_confusion_matrix.png', format='png', transparent=False)  # save result
 plt.show()
-plt.savefig('../results/ml_confusion_matrix.png')  # save result
 
 # display in table format
 level = [len(labels)*[0], list(range(len(labels)))]
