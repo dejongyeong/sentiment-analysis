@@ -79,20 +79,20 @@ print()
 
 # evaluation
 print('\nModel Evaluation:')
-tv_accuracy = np.round(mt.accuracy_score(testY, svm_pred), 3)
-tv_precision = np.round(mt.precision_score(testY, svm_pred, average='macro'), 3)
-tv_recall = np.round(mt.recall_score(testY, svm_pred, average='macro'), 3)
-tv_f1 = np.round(mt.f1_score(testY, svm_pred, average='macro'), 3)
+svm_accuracy = np.round(mt.accuracy_score(testY, svm_pred), 3)
+svm_precision = np.round(mt.precision_score(testY, svm_pred, average='macro'), 3)
+svm_recall = np.round(mt.recall_score(testY, svm_pred, average='macro'), 3)
+svm_f1 = np.round(mt.f1_score(testY, svm_pred, average='macro'), 3)
 
-tv_metrics = np.array([tv_accuracy, tv_precision, tv_recall, tv_f1])
-tv_metrics = pd.DataFrame([tv_metrics], columns=['accuracy', 'precision', 'recall', 'f1'], index=['metrics'])
+svm_metrics = np.array([svm_accuracy, svm_precision, svm_recall, svm_f1])
+svm_metrics = pd.DataFrame([svm_metrics], columns=['accuracy', 'precision', 'recall', 'f1'], index=['metrics'])
 print('Performance Metrics:')
-print(tabulate(tv_metrics, headers='keys', tablefmt='github'))
+print(tabulate(svm_metrics, headers='keys', tablefmt='github'))
 
 # visualization
 # reference: https://stackoverflow.com/questions/25447700/annotate-bars-with-values-on-pandas-bar-plots
 fig = plt.figure()
-ax = tv_metrics.plot.bar()
+ax = svm_metrics.plot.bar()
 plt.title('Hybrid Approach Performance Evaluation\n')
 plt.ylabel('result')
 plt.xlabel('model evualtion')
@@ -135,5 +135,8 @@ svm_report = mt.classification_report(testY, svm_pred, labels=labels)
 print(svm_report)
 
 print()
+
+# output performance to csv
+svm_metrics.to_csv('../results/hybrid_performace_result.csv', index=None, header=True)
 
 # end of hybrid approach

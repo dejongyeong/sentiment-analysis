@@ -130,6 +130,9 @@ print('\nClassification Report:\n')
 report = mt.classification_report(testY, pred, labels=labels)
 print(report)
 
+# output performance to csv
+metrics.to_csv('../results/lexicon_performace_result.csv', index=None, header=True)
+
 
 """
 Appendix
