@@ -136,7 +136,7 @@ print(tv_report)
 print()
 
 # output performance to csv
-tv_metrics.to_csv('../results/ml_performace_result.csv', index=None, header=True)
+tv_metrics.to_csv('../results/ml_performance_result.csv', index=None, header=True)
 
 # end of ml sentiment analysis
 

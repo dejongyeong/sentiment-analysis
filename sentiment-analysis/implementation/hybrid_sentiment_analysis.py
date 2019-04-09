@@ -137,6 +137,6 @@ print(svm_report)
 print()
 
 # output performance to csv
-svm_metrics.to_csv('../results/hybrid_performace_result.csv', index=None, header=True)
+svm_metrics.to_csv('../results/hybrid_performance_result.csv', index=None, header=True)
 
 # end of hybrid approach
