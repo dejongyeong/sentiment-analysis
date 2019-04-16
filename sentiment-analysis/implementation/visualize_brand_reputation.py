@@ -26,7 +26,8 @@ data = data.replace({'brand': ['Apple Computer', 'apple']}, 'Apple')
 
 # BlackBerry and Research in Motion
 bb = 'BlackBerry Storm 9530 Smartphone Unlocked GSM Wireless Handheld Device w/Camera Bluetooth 3.25" Touchscreen LCD'
-data = data.replace({'brand': [bb, 'BLACKBERRY', 'Black Berry', 'Blackberry', 'blackberry']}, 'BlackBerry')
+data = data.replace({'brand': [bb, 'BLACKBERRY', 'Black Berry', 'Blackberry', 'blackberry', 'Research In Motion',
+                               'Research in Motion', 'BlackBerry (RIM)']}, 'BlackBerry')
 
 # analyse only Apple and BlackBerry
 df = data[data['brand'].isin(['Apple', 'BlackBerry'])]
@@ -62,9 +63,6 @@ Appendix
 
 # Asus
 # data = data.replace({'brand': ['Asus', 'ASUS Computers', 'asus']}, 'ASUS')
-
-# RIM
-# data = data.replace({'brand': ['Research In Motion', 'Research in Motion', 'Blackberry (RIM)']}, 'RIM')
 
 # Yezz
 # data = data.replace({'brand': ['Yezz', 'Yezz Wireless Ltd.']}, 'Yezz')
