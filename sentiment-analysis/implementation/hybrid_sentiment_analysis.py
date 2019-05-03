@@ -130,6 +130,8 @@ svm_cmf = pd.DataFrame(data=svm_cm,
                        index=pd.MultiIndex(levels=[['actual:'], labels], labels=level))
 print(svm_cmf)
 
+print('\nClassification Report of Hybrid Approach to Sentiment Analysis:\n')
+
 # classification report for hybrid approach
 svm_report = mt.classification_report(testY, svm_pred, labels=labels)
 print(svm_report)
