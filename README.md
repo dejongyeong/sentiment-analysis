@@ -1,17 +1,30 @@
-# Sentiment Analysis
-Sentiment Analysis Approach for Reputation Evaluation
+# Sentiment Analysis Approach for Reputation Evaluation
 
 ### Research Question:
 * Can computers perform reputation evaluation that benefit businesses?
-* How sentiment analysis can be used for reputation evaluation?
+* How sentiment analysis can be used to evaluate reputation of a product or services?
 
-### Proposed Methodology:
-Proposed methodology is to compare and evaluate metrics that are being gathered via implementation of sentiment classification techniques. The purpose of the proposed solution is to determine which implementation of sentiment classifications technique provides the highest value of accuracy rate that can be utilized by businesses to evaluate reputations or product reviews.
+### Objective
+* Evaluate and Compare the selected sentiment classification techniques used to evaluate brand reviews.
+* Findings are presented to make informative decisions regarding the adoption of classification techniques.
 
-### Technology Used:
+### Proposed Methodology
+* Dataset containing 400,000 reviews of unlocked mobile phones sold on Amazon was selected.
+* Three approaches (lexicon-based, machine learning and hybrid) were implemented to identify the underlying sentiment.
+* Model evaluation metrics were utilised for comparative analysis.
+
+### Programming Language and Software Tools
 * PyCharm by JetBrains
 * Python
+* Scikit-Learn Library
 
-### Datasets
-Step 1: Clone Repository.<br>
-Step 2: Unzip datasets from sentiment-analysis/datasets before running the program.
+### Results
+* Accuracy of Hybrid approach was the highest, giving 81.2% of correctly predicted observation.
+* Precision score of Lexicon-based approach was the lowest with 54.0% of correctly predicted positive observations.
+* F1 score of Hybrid approach was the highest, presenting with 70.2% of harmonic mean between precision and recall. 
+* The positive sentiment label in Apple and BlackBerry mobile reviews were higher, compared to the negative and neutral sentiment labels.
+
+### Conclusions
+* Hybrid approach to sentiment analysis can effectively be used to evaluate brand reviews that benefit businesses.
+* Underlying sentiment of brand reviews can be evaluated with the use of sentiment classification techniques. 
+* Slang and emoticons handling may be implemented to improve results of sentiment analysis.
