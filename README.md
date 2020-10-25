@@ -1,5 +1,7 @@
 # Sentiment Analysis Approach for Reputation Evaluation
 
+Link to slide: [SlideServe](https://www.slideserve.com/dejongy/sentiment-analysis-approach-for-brand-reputation-evaluation-powerpoint-ppt-presentation)
+
 ### Research Question:
 * Can computers perform reputation evaluation that benefit businesses?
 * How sentiment analysis can be used to evaluate reputation of a product or services?
